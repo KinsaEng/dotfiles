@@ -1,0 +1,207 @@
+{
+    "layer": "top",
+    "position": "top",
+    "spacing": 5,
+    "height": 40,
+    "width": 1910,
+    "margin-top": 10,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "image",
+        "custom/mediaplayer",
+        "pulseaudio",
+        "tray",
+        "custom/power"
+    ],
+    "image": {
+        "path": "/tmp/waybar-mediaplayer-art",
+        "size": 40,
+        "signal": 4,
+        "on-click": "feh --auto-zoom --borderless --title 'feh-float' /tmp/waybar-mediaplayer-art"
+    },
+
+    "custom/mediaplayer": {
+        "exec": "$HOME/.config/waybar/waybar-mediaplayer/src/mediaplayer monitor",
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "$HOME/.config/waybar/waybar-mediaplayer/src/mediaplayer play-pause",
+        "on-scroll-up": "$HOME/.config/waybar/waybar-mediaplayer/src/mediaplayer next",
+        "on-scroll-down": "$HOME/.config/waybar/waybar-mediaplayer/src/mediaplayer previous",
+        "min-length": 20,
+        "max-length": 20
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-click-right": "fullscreen",
+        "icon-theme": "WhiteSur",
+        "icon-size": 25,
+        "tooltip-format": "{title}"
+    },
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "active": "󱓻",
+            "urgent": "󱓻"
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    "custom/music":{
+       "exec": "~/.config/waybar/scripts/music_module.sh",
+        "interval": 2,
+        "return-type": "json",
+        "format": "{}"
+    }
+    ,
+    "memory": {
+        "interval": 5,
+        "format": "☰ {used:0.2f} / {total:0.0f} GB",
+        "max-length": 10,
+        "on-click": "kitty -e htop"
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "  {max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
+        "max-length": 15,
+        "min-length": 15
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "{calendar}",
+        "format-alt": "{:%a, %d %b %Y}",
+        "format": "{:%I:%M %p}"
+    },
+    "network": {
+        "format-wifi" : "{icon}",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "format-ethernet": "󰀂",
+	"format-alt" : "󱛇",
+        "format-disconnected" : "󰖪",
+	"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+	"tooltip-format-disconnected": "Disconnected",
+	"on-click": "~/.config/rofi/wifi/wifi.sh &",
+        "on-click-right": "~/.config/rofi/wifi/wifinew.sh &",
+	"interval": 5,
+	"nospacing": 1
+    },
+    "wireplumber": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰",
+        "nospacing": 1,
+        "tooltip-format": "Volume : {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰖀","󰕾",""]
+        },
+        "on-click": "pamixer -t",
+        "scroll-step": 1
+    },
+    "pulseaudio": {
+        
+        "scroll-step": 3,
+        "format": "  {volume}% {format_source}",
+        "format-bluetooth": " {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "  {format_source}",
+	    "ignored-sinks": ["Easy Effects Sink"],
+	    "max-volume": 150,
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": ""
+        },
+        "on-click": "pavucontrol",
+		"on-click-middle": "pulseaudio-control --node-blacklist 'easyeffects_sink' next-node",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    "custom/pulseaudio-icon": {
+        "exec": "pulseaudio-ctl status",
+        "format": "",
+        "tooltip": "Current Volume: {volume}%",
+        "on-click": "pavucontrol",
+        "id": "custom-pulseaudio-icon" 
+    },
+    "custom/pulseaudio-text": {
+        "exec": "pulseaudio-ctl status",
+        "format": "{volume}%",
+        "tooltip": "Current Volume: {volume}%",
+        "on-click": "pavucontrol",
+        "id": "custom-pulseaudio-text" 
+    }
+    ,
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    }
+}

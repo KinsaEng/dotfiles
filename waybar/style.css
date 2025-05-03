@@ -1,0 +1,60 @@
+* {
+  font-family: "Orbitron", sans-serif;
+  color: rgb(200, 231, 255);
+  font-size: 16px;
+}
+
+#waybar{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+
+#clock,
+#memory,
+#cpu,
+#tray,
+#workspaces,
+#network,
+#pulseaudio,
+#custom-mediaplayer, 
+#custom-power
+{
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 3px;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: rgba(0, 120, 212, 0.3);
+  border-radius: 1rem;
+  border: 2px solid rgb(0, 120, 212);
+}
+
+#cpu{
+  padding: 0px;
+  padding-top: 7px;
+  margin: 0px;
+}
+
+tooltip{
+  background-color: rgba(0, 120, 212, 0.6);
+  border-radius: 1rem;
+  border: 2px solid rgb(0, 120, 212);
+}
+
+tooltip *{
+  margin: 5;
+}
+
+#tray * {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+#tray menuitem {
+  margin-top: 5;
+  background-color: rgba(0, 120, 212, 0.7);
+  border-radius: 1rem;
+  border: 2px solid rgb(0, 120, 212);
+}
+
+@import "./waybar-mediaplayer/src/style.css";
