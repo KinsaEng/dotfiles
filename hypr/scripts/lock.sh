@@ -2,14 +2,14 @@
 
 pkill -f showdesk.py
 
+python3 ~/.config/hypr/scripts/showdesk.py
+
 swaync-client -dn &
 
-python3 ~/.config/hypr/scripts/showdesk.py &
-
-hyprctl dispatch workspace 137 &
+~/.config/hypr/scripts/minimizeall.sh --minimize &
 
 hyprlock
 
-hyprctl dispatch workspace 1 &
+~/.config/hypr/scripts/minimizeall.sh --return &
 
 swaync-client -df 

@@ -15,3 +15,10 @@ cp -r ~/.config/waybar/ ~/.dotfiles
 cp -r ~/.config/waypaper/ ~/.dotfiles
 cp -r ~/.config/wlogout/ ~/.dotfiles
 cp -r ~/.config/swaync/ ~/.dotfiles
+
+cd ~/.dotfiles
+git add .
+git commit -m "$(date +"%Y-%m-%d")"
+git push origin main
+
+echo "Done."
