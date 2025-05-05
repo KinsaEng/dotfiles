@@ -17,7 +17,8 @@
 #network,
 #pulseaudio,
 #custom-mediaplayer, 
-#custom-power
+#custom-power,
+#custom-notifications
 {
   margin-left: 0px;
   margin-right: 0px;
@@ -53,6 +54,17 @@ tooltip *{
 #tray menuitem {
   margin-top: 5;
   background-color: rgba(0, 120, 212, 0.7);
+  border-radius: 1rem;
+  border: 2px solid rgb(0, 120, 212);
+}
+
+#custom-notifications
+{
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 3px;
+  padding-left: 15px;
+  background-color: rgba(0, 120, 212, 0.3);
   border-radius: 1rem;
   border: 2px solid rgb(0, 120, 212);
 }
